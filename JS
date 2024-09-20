@@ -1,0 +1,30 @@
+let firstInputElement = document.getElementById("firstNumber");
+let secondInputElement = document.getElementById("secondNumber");
+let userInputElement = document.getElementById("userInput");
+let gameResultInput = document.getElementById("gameResult");
+
+function restart() {
+    let randomNumber1 = Math.random(1, 100);
+    randomNumber1 = Math.round(randomNumber1 * 100, 2);
+    let randomNumber2 = Math.random(1, 100);
+    randomNumber2 = Math.round(randomNumber2 * 100, 2);
+    firstInputElement.textContent = randomNumber1;
+    secondInputElement.textContent = randomNumber2;
+    userInputElement.value = "";
+    gameResultInput.textContent = "";
+}
+restart();
+
+function checkResult() {
+    let firstRandomInteger = parseInt(firstInputElement.textContent);
+    let secondRandomInteger = parseInt(secondInputElement.textContent);
+    let userEnteredSum = parseInt(userInputElement.value);
+    let sum = firstRandomInteger + secondRandomInteger;
+    if (userEnteredSum === sum) {
+        gameResultInput.textContent = "Congratulations! You got it Right!";
+        gameResultInput.style.backgroundColor = "#028a0f";
+    } else {
+        gameResultInput.textContent = "Please Try Again!";
+        gameResultInput.style.backgroundColor = "#1e217c";
+    }
+}
